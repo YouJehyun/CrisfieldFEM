@@ -170,10 +170,8 @@ C     ARA = INPUT (AREA OF ELEMENT)
 C
 C     IF IWRIT.NE.0(NOT EQUAL TO 0) WRITES OUT FI AND/OR AKT ON CHANNEL IWR
 C
-      DOUBLE PRECISION AKT(4,4),FI(4),Z(2),P(4),X(2),EA,E,ARA,EAL,AL,
-     1                 Z21,W21,BET,AN,ANL,ADUM1,ADUM2
-      INTEGER I,J,IDUM,IMOD,IWR,IWRIT
-      
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DIMENSION AKT(4,4),FI(4),Z(2),P(4),X(2)
 C
       EA = E*ARA
       EAL = EA/AL
@@ -184,7 +182,7 @@ C
       IF (IMOD.NE.2) THEN
 C     COMPUTES INT.FORCE.VECT (SEE 2.17)
         FI(1) = -1.D0
-        FI(2) = -1.D0
+        FI(2) = 1.D0 ! TYPO IN BOOK
         FI(3) = -BET
         FI(4) = BET
         DO 1 I=1,4
@@ -226,7 +224,7 @@ C
         ANL = AN/AL
         AKT(3,3) = AKT(3,3) + ANL
         AKT(3,4) = AKT(3,4) - ANL
-        AKT(4,4) = AKT(3,3) + ANL
+        AKT(4,4) = AKT(4,4) + ANL
         AKT(4,3) = AKT(3,4)
         IF (IWRIT.NE.0) THEN
           WRITE (IWR,1001)
