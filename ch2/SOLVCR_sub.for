@@ -1,0 +1,37 @@
+      SUBROUTINE SOLVCR(AK,D,Q,N,IWRIT,IWR)
+C
+C     APPLIES FORWARD AND BACK CROUT SUBS ON Q
+C
+      DOUBLE PRECISION AK(N,N),D(N),Q(N)
+      INTEGER N,I,J,L,IWRIT,IWR
+C
+C     FORWARD SUBS
+      DO 1 J=2,N
+        DO 2 L=1,J-1
+          Q(J) = Q(J) - AK(L,J)*Q(L)
+    2   CONTINUE
+    1 CONTINUE
+      IF (IWRIT.NE.0) THEN
+        WRITE (IWR,1000) (Q(I), I=1,N)
+ 1000   FORMAT(/,1X,'DISP.INCS AFTER FORWARD SUBS.ARE',1X,7G12.5,/)
+      ENDIF
+C
+C     BACK SUBS.
+      DO 3 I=1,N
+        Q(I) = Q(I)/D(I)
+    3 CONTINUE
+C
+      DO 4 JJ=2,N
+        J = N + 2 - JJ
+        DO 5 L=1,J-1
+          Q(L) = Q(L) - AK(L,J)*Q(J)
+    5   CONTINUE
+    4 CONTINUE
+C
+      IF (IWRIT.NE.0) THEN
+        WRITE (IWR,1001) (Q(I), I=1,N)
+ 1001   FORMAT(/,1X,'DISP INCS.AFTER BACKWARD SUBS.ARE',1X,7G12.5,/)
+      ENDIF
+C
+      RETURN
+      END

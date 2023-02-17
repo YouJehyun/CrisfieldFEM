@@ -1,0 +1,511 @@
+
+ NV=NO. OF VARIABLES=            4
+ EA=  0.50000E+08
+ AL=EL.LENGTH=   2500.0    
+ ANIT=INIT.FORCE=   0.0000    
+
+
+ Z COORDINATE OF NODE 1=   0.0000    
+ Z COORDINATE OF NODE 2=   25.000    
+
+
+ FIXED LOAD OR DISP.VECTOR, QFI=
+    0.0000       0.0000       0.0000      -7.0000    
+
+ IF IBC(I)-SEE BELOW-=0, VARIABLE=A LOAD
+ IF IBC(I)-SEE BELOW-=-1, VARIABLE=A DISP.
+
+
+ BOUND.COND.COUNTER, IBC
+ (0 : FREE, 1: REST TO ZERO, -1 : REST TO NON-ZERO)
+             1            1            1            0
+
+ LINEAR SPRING OF STIFFNESS   1.3500    
+ ADDED AT VARIABLE NO.            4
+
+
+ INCREMENT OF LOAD FACTOR =   1.0000    
+ NO. OF INCREMENT (NINC)=           12
+ WRITE CONTROL (IWRIT)            1
+   (0=LIMITED ; 1=FULL)
+
+
+ INCREMENT =             1   LOAD FACTOR =    1.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       200.00      -200.00    
+   -20000.       20000.      -200.00       200.00    
+    200.00      -200.00       2.0000      -2.0000    
+   -200.00       200.00      -2.0000       2.0000    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       200.00      -200.00    
+   -20000.       20000.      -200.00       200.00    
+    200.00      -200.00       2.0000      -2.0000    
+   -200.00       200.00      -2.0000       3.3500    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.10000E-01-0.10000E-01
+  -20000.      20001.      0.0000      0.0000    
+   200.00     -200.00      2.0000      0.0000    
+  -200.00      200.00     -2.0000      3.3500    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      2.0000      3.3500    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.20896E-01     0.0000         0.0000        -2.0896    
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000         0.0000        -2.0896    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             2   LOAD FACTOR =    2.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.80154E-04    -2.0896    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             3   LOAD FACTOR =    3.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.16031E-03    -2.0897    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             4   LOAD FACTOR =    4.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.24046E-03    -2.0898    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             5   LOAD FACTOR =    5.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.32062E-03    -2.0899    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             6   LOAD FACTOR =    6.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.40077E-03    -2.0900    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             7   LOAD FACTOR =    7.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.48092E-03    -2.0900    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             8   LOAD FACTOR =    8.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.56108E-03    -2.0901    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =             9   LOAD FACTOR =    9.0000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.64123E-03    -2.0902    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =            10   LOAD FACTOR =    10.000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.72139E-03    -2.0903    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =            11   LOAD FACTOR =    11.000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.80154E-03    -2.0904    
+
+ AXIAL FORCE AN =   0.10916E+09
+
+
+ INCREMENT =            12   LOAD FACTOR =    12.000    
+
+
+ TAN.STIFF.MATRIX FOR TRUSS ELEMENT IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87326.    
+
+ FULL STRUCT.TAN.STIFF. IS
+
+    20000.      -20000.       183.28      -183.28    
+   -20000.       20000.      -183.28       183.28    
+    183.28      -183.28       43664.      -43664.    
+   -183.28       183.28      -43664.       87328.    
+
+ STIFF.MAT.AFTER B.CONDS. IS
+
+
+ FACTORISED MATRIX IS
+
+   20000.     -1.0000     0.91642E-02-0.91642E-02
+  -20000.      20001.      0.0000      0.0000    
+   183.28     -183.28      43664.    -0.99996    
+  -183.28      183.28     -43664.      87329.    
+
+ DIAG.PIVOTS ARE
+
+   20000.      20001.      43664.      87329.    
+
+ DISP.INCS AFTER FORWARD SUBS.ARE      0.0000         0.0000         0.0000        -7.0000    
+
+ DISP INCS.AFTER BACKWARD SUBS.ARE    -0.28257E-10     0.0000       -0.80154E-04   -0.80157E-04
+
+ TOTAL DISPS. ARE    -0.20896E-01     0.0000       -0.88169E-03    -2.0904    
+
+ AXIAL FORCE AN =   0.10916E+09
+
