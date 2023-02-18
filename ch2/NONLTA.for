@@ -379,6 +379,7 @@ C     ! NEXT, AK WILL BE MODIFIED.
               AK(I,J) = 1.D0
             ELSE
               AK(I,J) = 0.D0
+              AK(J,I) = 0.D0
             ENDIF 
           ENDIF
           IF ((II.EQ.0.AND.JJ.NE.0) .OR. (II.NE.0.AND.JJ.EQ.0)) THEN
