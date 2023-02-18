@@ -334,33 +334,58 @@ C     APPLIES BOUNDARY CONDITIONS TO MATRIX AK AS WELL AS
 C     ALTERING 'LOAD VECTOR', F FOR PRESCRIBED DISPLACEMENTS.
 C     BY SETTING DIAG = 1. AND ROW AND COL TO ZERO IN REST.
 C     USES COUNTER IBC WHICH IS 0 IF FREE, 1 IF REST. TO ZERO,
-C     -1 IF REST. TO NON-ZERO VALUE
+C     -1 IF REST. TO NON-ZERO VALUE.
 C     ON ENTRY F HAS LOADS FOR FREE ARIABLES AND DISPLACEMENTS FOR
 C     REST. (POSSIBLY ZERO) VARIABLES
 C     ON EXIT THE LATTER ARE UNCHANGED BUT LOADS ARE ALTERED
 C
-      DOUBLE PRECISION AK(N,N),F(N)
-      INTEGER N,IBC(N),I,J,IPRS,IWRIT,IWR
+      IMPLICIT DOUBLE PRECISION (A-H, O-Z)
+      DIMENSION IBC(N) ! TYPO IN BOOK
+      DIMENSION AK(N,N),F(N)
 C
+C     ! SIMPLER VERSION OF CODE (COMPARED TO TEXTBOOK).
+C
+C     ! FIRST, F WILL BE MODIFIED.
       IPRS = 0
+      DO 40 I=1,N
+        II = IBC(I)
+        DO 50 J=I+1,N ! TYPO IN BOOK
+          JJ = IBC(J)
+          ! Q_F(I) -= K_FP(I,J)*P_P(J) ~ EINSTIEN NOTATION
+          ! EACH Q_F(I) SHOULD BE SUBTRACTED BY K_FP(I,J)*P_P(J)
+          ! FOR EVERY J, BUT WE ARE LOOKING FOR ONLY UPPER TRIANGLE.
+          ! SO, IF K_FP, Q_F(I) -= K_FP(I,J)*P_P(J), AND 
+          !     IF K_PF, Q_F(J) -= K_PF(I,J)*P_P(I)
+          IF (II.EQ.0.AND.JJ.NE.0) THEN
+            ! K_FP
+            IPRS = 1
+            F(I) = F(I) - AK(I,J)*F(J)
+          ENDIF
+          IF (II.NE.0.AND.JJ.EQ.0) THEN
+            ! K_PF
+            F(J) = F(J) - AK(I,J)*F(I)
+          ENDIF 
+   50   CONTINUE
+   40 CONTINUE
+C
+C     ! NEXT, AK WILL BE MODIFIED.
       DO 10 I=1,N
-      II = IBC(I)
-      IF (II.LT.0) IPRS = 1
-      IF (II.NE.0) AK(I,I) = 1.D0
-      IF (I.EQ.N) GO TO 10
-        DO 20 J=1+1,N
-        JJ = IBC(J)
-        IF (II.EQ.0.AND.JJ.EQ.0) GO TO 20
-C     ABOVE BOTH FREE, BELOW BOTH REST
-        IF (II.NE.0.AND.JJ.EQ.0) GO TO 25
-C     BELOW I REST OR PRESC
-        IF (II.NE.0) THEN
-          F(J) = F(J) - AK(I,J)*F(I)
-C     BELOW J REST OR PRESC
-        ELSE
-          F(I) = F(I) - AK(I,J)*F(J)
-        ENDIF
-   25   AK(I,J) = 0.d0
+        II = IBC(I)
+        DO 20 J=I,N
+          JJ = IBC(J)
+          IF (II.NE.0.AND.JJ.NE.0) THEN
+            ! K_PP
+            IF (I.EQ.J) THEN
+              AK(I,J) = 1.D0
+            ELSE
+              AK(I,J) = 0.D0
+            ENDIF 
+          ENDIF
+          IF ((II.EQ.0.AND.JJ.NE.0) .OR. (II.NE.0.AND.JJ.EQ.0)) THEN
+            ! K_FP, K_PF
+            AK(I,J) = 0.D0
+            AK(J,I) = 0.D0
+          ENDIF
    20   CONTINUE
    10 CONTINUE
 C
