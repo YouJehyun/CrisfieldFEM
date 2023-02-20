@@ -412,27 +412,37 @@ C
 C     INPUTS AK(N,N); OUTPUTS UPPER TRIANGLE IN AK AND DIAG
 C     PIVOTS IN D(N)
 C
-      DOUBLE PRECISION AK(N,N),D(N),A
-      INTEGER N,I,J,IWR,IWRIT
-C
-      D(1) = AK(1,1)
-      DO 1 J=2,N
-        DO 2 I=1,J-1
-          A = AK(I,J)
-          IF (I.EQ.1) GO TO 2
-          DO 3 L=1,I-1
-            A=A-AK(L,J)*AK(L,I)
-    3     CONTINUE
-          AK(I,J) = A
-    2   CONTINUE
-        DO 4 I=1,J-1
-          AK(I,J) = AK(I,J)/AK(I,I)
-    4   CONTINUE   
-        DO 5 L=1,J-1
-          AK(J,J) = AK(J,J) - AK(L,J)*AK(L,J)*AK(L,J)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DIMENSION AK(N,N),D(N),AL(N,N),AU(N,N)
+C     ! REWROTE WHOLE CODE
+C     ! REFERENCE:
+C       "NUMERICAL RECIPES IN FORTRAN",WILLIAM H. PRESS ET AL, CH 2.3
+C     ! AK IS ALWAYS POS. DEFINITE, SO NO NEED TO CONSIDER PERMUTATION
+      DO 1 I=1,N
+        AL(I,I) = 1.D0
+    1 CONTINUE
+      DO 2 J=1,N
+        DO 3 I=1,J ! EQ 2.3.12
+          AU(I,J)=AK(I,J)
+          DO 4 K=1,I-1
+            AU(I,J) = AU(I,J) - AL(I,K)*AU(K,J)
+    4     CONTINUE
+    3   CONTINUE
+        DO 5 I=J+1,N ! EQ 2.3.13
+          AL(I,J) = AK(I,J)/AU(J,J)
+          DO 6 K=1,J-1
+            AL(I,J) = AL(I,J) - AL(I,K)*AU(K,J)/AU(J,J)
+    6     CONTINUE
     5   CONTINUE
-        D(J) = AK(J,J)
-    1   CONTINUE
+    2 CONTINUE
+      DO 7 I=1,N
+        DO 8 J=1,N
+          AK(I,J) = AL(I,J)
+    8   CONTINUE
+    7 CONTINUE
+      DO 9 I=1,N
+        D(I) = AU(I,I)
+    9 CONTINUE
 C     
       IF (IWRIT.NE.0) THEN
         WRITE (IWR,1000)
